@@ -1,0 +1,12 @@
+{.section item}
+<article id="post-{id}" class="{@|item-classes}" data-item-id="{id}">
+  <h1 class="title" data-content-field="title">
+    {.passthrough?}
+      <a href="{sourceUrl}" target="_blank">{title}</a>
+    {.or}
+      <a href="{fullUrl}">{title}</a>
+    {.end}
+  </h1>
+  {body}
+</article>
+{.end}

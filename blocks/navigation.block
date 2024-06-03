@@ -1,0 +1,24 @@
+<nav>
+  <ul>
+    <li class="{.section active} active-link{.end}">
+      {.section collection}
+        <a href="{fullUrl}">{navigationTitle}</a>
+      {.end}
+      {.section externalLink}
+        <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+      {.end}
+    </li>
+    <li>
+      <a href="/index.html">Home</a>
+    </li>
+    <li>
+      <a href="/about.html">About</a>
+    </li>
+    <li>
+      <a href="/services.html">Services</a>
+    </li>
+    <li>
+      <a href="/contact.html">Contact</a>
+    </li>
+  </ul>
+</nav>
