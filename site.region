@@ -1,55 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{website.siteTitle}</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- include system scripts, page meta, and header code injection -->
     {squarespace-headers}
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <nav>
+<body id="{squarespace.page-id}" class="{squarespace.page-classes}">
+
+    <div class="site-container">
+
+      <header class="site-header">
+        <!-- site navigation -->
+        <squarespace:navigation navigationId="mainNav" template="site-navigation" />
+
+        <!-- site title or logo -->
+        {.section website}
+          <h1 class="site-title-heading" data-content-field="site-title">
+            <a href="/" class="site-title-link">{siteTitle}</a>
+          </h1>
+        {.end}
+      </header>
+
+      <!-- cms content injection point -->
+      <main class="content-container" role="main" data-content-field="main-content">
+        {squarespace.main-content}
+      </main>
+
+      <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
-    </nav>
-    {squarespace.main-content}
-    <footer>
-        <p>&copy; {year} JB Computers. All rights reserved.</p>
-    </footer>
-    <script src="js/script.js"></script>
-    {squarespace-footers}
-</body>
-</html>
+      </nav>
 
- 
-<!--  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{website.siteTitle}</title>
-  <squarespace:script src="js/script.js" combo="true" />
-  <squarespace:style src="css/styles.css" combo="true" />
-</head>
-<body>
-  <header>
-    <nav data-content-field="navigation-mainNav">
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main role="main" data-content-field="main-content">
-    {squarespace.main-content}
-  </main>
-  <footer>
-    <p>© {website.siteTitle} {year}</p>
-  </footer>
+      <!--Footer with open block field -->
+      <footer class="site-footer">
+        <squarespace:block-field id="footerBlocks" columns="12" />
+        <p>&copy; 2024 JB Computers. All rights reserved.</p>
+      </footer>
+
+    </div>
+
+    <!-- combo and minify scripts when not logged in -->
+    <squarespace:script src="site.js" combo="{.if authenticatedAccount}false{.or}true{.end}" />
+    <script src="js/script.js"></script>
+    <!-- other scripts, and footer code injection -->
+    {squarespace-footers}
+
 </body>
 </html>
- -->
